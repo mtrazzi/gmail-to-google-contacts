@@ -26,8 +26,11 @@ with open('google_contacts.csv', 'w') as f:
         if (len(line) >= 3):
             first_name,last_name = line[0], line[1]
             full_name = first_name + " " + last_name
+
         # constructing a string compatible with the Google Contacts format
         # e.g. Elon Musk,Elon,,Musk,,,,,,,,,,,,,,,,,,,,,,,,,,* ,elon.musk@tesla.com,,,,,,,,,,,,,,,,,,,,,,,,,
         string_for_csv = full_name + "," + first_name + ",," + last_name + \
                             26 * "," + "* ," + mail + 25 * "," + '\n'
+
+        # writing the string in your google contact csv file
         f.write(string_for_csv)
