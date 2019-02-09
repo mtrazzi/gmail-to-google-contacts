@@ -6,10 +6,6 @@
 # Elon Musk <elon.musk@tesla.com>
 
 lines = [line.rstrip('\n').rstrip(',').split() for line in open('mail.txt')]
-
-for line in lines:
-    print(line)
-
 with open('google_contacts.csv', 'w') as f:
 
     # write the name of the columns for the google contacts csv file
@@ -24,9 +20,7 @@ with open('google_contacts.csv', 'w') as f:
 
         # in gmail, emails are the last field, as "<elon.musk@tesla.com>"
         # so we need to take the last element and get rid of those "<" and ">"
-        print("line[-1] is: |", line[-1], "|")
         mail = line[-1][1:-1]
-        print("mail is:" + mail)
 
         # if no names are provided (only mail), the len of "line" is only 1
         if (len(line) >= 3):
@@ -37,4 +31,3 @@ with open('google_contacts.csv', 'w') as f:
         string_for_csv = full_name + "," + first_name + ",," + last_name + \
                             26 * "," + "* ," + mail + 25 * "," + '\n'
         f.write(string_for_csv)
-        print(string_for_csv)
